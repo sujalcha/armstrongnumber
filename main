@@ -1,0 +1,51 @@
+fun main() {
+    var theanser:Boolean = checkforAN(371)
+    println(theanser)
+}
+
+
+fun checkforAN(number:Int):Boolean{
+    //check for size of number to get n
+
+    var n:Int = 0
+    var string = number.toString()
+    var digits = string.map(Character::getNumericValue).toIntArray()
+
+    //var total : Int = 1
+    n= findtens(number)
+    val arr: IntArray = IntArray(n) {1}
+
+    for((index,digit) in digits.withIndex()){
+        n= findtens(number)
+        while (n != 0) {
+            println("n ="+n)
+            arr[index] *= digit.toInt()
+            println("arr[index] ="+arr[index])
+            --n
+        }
+        
+    }
+    
+    var sum: Int = 0
+    for(ar in arr){
+        sum +=ar
+    }
+    println("sum ="+sum)
+
+    if(sum == number){
+        return true
+    }
+    else{
+        return false}
+}
+
+fun findtens(num: Int):Int{
+
+    var string = num.toString()
+    var digits = string.map(Character::getNumericValue).toIntArray()
+    var len = digits.size
+    return len
+}
+
+
+
